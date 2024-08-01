@@ -21,6 +21,16 @@
 .search {
   cursor: pointer;
 }
+.empty {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 60px;
+  font-family: "Poppins";
+}
+.qrCodeContainer {
+  margin-top: 60px;
+  text-align: center;
+}
 
 .buttons {
   width: 90%;

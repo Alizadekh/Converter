@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import QRCode from "qrcode.react";
 import style from "../../css/Area.module.css";
 
 function Area() {
@@ -6,6 +7,7 @@ function Area() {
   const textInputRef = useRef(null);
   const [fileExtension, setFileExtension] = useState("");
   const [isYouTubeLink, setIsYouTubeLink] = useState(false);
+  const [qrCodeValue, setQrCodeValue] = useState("");
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
@@ -15,6 +17,7 @@ function Area() {
       textInputRef.current.value = fileName;
       setFileExtension(extension);
       setIsYouTubeLink(false);
+      setQrCodeValue("");
     }
   };
 
@@ -25,8 +28,15 @@ function Area() {
     if (youTubeRegex.test(inputValue)) {
       setIsYouTubeLink(true);
       setFileExtension("");
+      setQrCodeValue("");
+    } else if (inputValue.trim() === "") {
+      setIsYouTubeLink(false);
+      setFileExtension("");
+      setQrCodeValue("");
     } else {
       setIsYouTubeLink(false);
+      setFileExtension("");
+      setQrCodeValue(inputValue);
     }
   };
 
@@ -103,8 +113,14 @@ function Area() {
           <button>XLS</button>
         </div>
       );
+    } else if (qrCodeValue) {
+      return (
+        <div className={style.qrCodeContainer}>
+          <QRCode value={qrCodeValue} size={256} />
+        </div>
+      );
     }
-    return <div>Empty lottie animation</div>;
+    return <div className={style.empty}>Empty lottie animation</div>;
   };
 
   return (

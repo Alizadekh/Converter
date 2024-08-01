@@ -1,0 +1,10 @@
+.main {
+  padding: 30px 0;
+  background: #fff7ec;
+}
+.container {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}

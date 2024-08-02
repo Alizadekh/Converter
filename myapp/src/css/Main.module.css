@@ -1,7 +1,14 @@
 .main {
+  background-color: #fff7ec;
+  color: #000000;
   padding: 30px 0;
-  background: #fff7ec;
 }
+
+.darkMain {
+  background-color: #000000bb;
+  color: #ffffff;
+}
+
 .container {
   margin: auto;
   width: 90%;

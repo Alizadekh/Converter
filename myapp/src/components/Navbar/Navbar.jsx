@@ -1,10 +1,23 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { toggleTheme } from "../../features/themeSlice";
 import style from "../../css/Navbar.module.css";
-import { FaMoon } from "react-icons/fa";
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
+
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
+  };
+
   return (
-    <div className={style.header}>
+    <div
+      className={`${style.header} ${
+        theme === "dark" ? style.dark : style.light
+      }`}
+    >
       <div className={style.navbar}>
         <div className={style.logo}>
           <svg
@@ -16,16 +29,16 @@ function Navbar() {
           >
             <path
               stroke="#344054"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
               d="M29.167 20.833s7.354.855 11.333-3.708c4-4.625 3.25-12.958 3.25-12.958a17 17 0 0 0-5.27.375l-.98 3.791-3.98-1.479c-.43.325-.818.693-1.166 1.104-4 4.542-3.187 12.875-3.187 12.875Zm0 0L25 25"
             />
             <path
               stroke="#FF9500"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
               d="M25 6.25H8.333A2.083 2.083 0 0 0 6.25 8.333v33.334a2.083 2.083 0 0 0 2.083 2.083h33.334a2.083 2.083 0 0 0 2.083-2.083V25"
             />
             <path
@@ -36,8 +49,12 @@ function Navbar() {
           </svg>
           <p>converter</p>
         </div>
-        <div className={style.modeIcon}>
-          <FaMoon className={style.icon} />
+        <div className={style.modeIcon} onClick={handleToggleTheme}>
+          {theme === "dark" ? (
+            <FaSun className={style.icon} />
+          ) : (
+            <FaMoon className={style.icon} />
+          )}
         </div>
       </div>
     </div>

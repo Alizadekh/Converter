@@ -1,5 +1,10 @@
 .area {
   width: 40%;
+  color: #000000;
+}
+.darkArea {
+  background-color: #000000;
+  color: #ffffff;
 }
 .inputArea {
   padding: 20px 24px;

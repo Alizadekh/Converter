@@ -3,8 +3,22 @@
   color: #000000;
 }
 .darkArea {
-  background-color: #000000;
-  color: #ffffff;
+  /* background-color: #000000;
+  color: #ffffff; */
+}
+.darkArea .inputArea {
+  background: #2d2d2d;
+
+  box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.25);
+}
+.darkArea .inputArea input {
+  background: #2d2d2d;
+  color: white;
+}
+.darkArea .buttons button {
+  background: #2d2d2d;
+  color: white;
+  box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.25);
 }
 .inputArea {
   padding: 20px 24px;
@@ -92,9 +106,7 @@
   cursor: pointer;
 }
 .youtubeConvert .ytaudioConvert .audioformat button:hover {
-  background-color: white;
-  color: #72e068;
-  border: 1px solid #72e068;
+  background-color: #4fb345;
 }
 
 .youtubeConvert .ytvideoConvert > p {
@@ -117,9 +129,7 @@
   cursor: pointer;
 }
 .youtubeConvert .ytvideoConvert .videoformat button:hover {
-  background-color: white;
-  color: #72e068;
-  border: 1px solid #72e068;
+  background-color: #4fb345;
 }
 
 @media only screen and (max-width: 768px) {

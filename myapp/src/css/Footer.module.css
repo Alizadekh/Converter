@@ -8,7 +8,9 @@
   background-color: white;
 }
 
-.lightFooter .footerContent h2,
+.lightFooter .footerContent h2 {
+  color: #ff9500;
+}
 .lightFooter .footerContent h1 {
   color: #000;
 }

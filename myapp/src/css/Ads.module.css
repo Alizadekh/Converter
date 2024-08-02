@@ -10,3 +10,12 @@
   width: 100%;
   height: 60vh;
 }
+@media only screen and (max-width: 768px) {
+  .adsArea {
+    width: 100%;
+    height: 20vh;
+  }
+  .adsImage {
+    height: 20vh;
+  }
+}

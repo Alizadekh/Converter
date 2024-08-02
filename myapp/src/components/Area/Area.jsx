@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import QRCode from "qrcode.react";
 import style from "../../css/Area.module.css";
+import Lottie from "react-lottie";
+import animationData from "../../assets/animations/animation.json";
 
 function Area() {
   const fileInputRef = useRef(null);
@@ -120,7 +122,22 @@ function Area() {
         </div>
       );
     }
-    return <div className={style.empty}>Empty lottie animation</div>;
+    return (
+      <div className={style.lottieContainer}>
+        <Lottie
+          options={{
+            loop: true,
+            autoplay: true,
+            animationData: animationData,
+            rendererSettings: {
+              preserveAspectRatio: "xMidYMid slice",
+            },
+          }}
+          height={400}
+          width={400}
+        />
+      </div>
+    );
   };
 
   return (

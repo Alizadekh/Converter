@@ -15,6 +15,7 @@
   background: #2d2d2d;
   color: white;
 }
+
 .darkArea .buttons button {
   background: #2d2d2d;
   color: white;
@@ -58,8 +59,28 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.qrZone {
+  width: 100%;
+  text-align: center;
+}
 .search {
   cursor: pointer;
+}
+.darkArea .qrCodeContainer {
+  background-color: #2d2d2d;
+}
+.darkArea .downloadBtn button {
+  background-color: #ff9500;
+  color: white;
+}
+.darkArea .QrSuccesMessage {
+  color: white;
+}
+.darkArea .qrdownload {
+  box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.25);
+  background-color: #ff9500;
+  color: white;
 }
 .empty {
   font-size: 32px;
@@ -68,8 +89,51 @@
   font-family: "Poppins";
 }
 .qrCodeContainer {
+  width: 60%;
+  margin: auto;
   margin-top: 60px;
+
   text-align: center;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.downloadBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Qrmessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.QrSuccesMessage {
+  color: #344054;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  margin: 80px 0;
+}
+.qrdownload {
+  width: 100%;
+  margin: auto;
+  color: #454545;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  height: 47px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 .buttons {
@@ -165,5 +229,11 @@
     width: 40%;
     padding: 7px 9px;
     font-size: 14px;
+  }
+  .qrCodeContainer {
+    width: 80%;
+  }
+  .qrdownload {
+    width: 80%;
   }
 }

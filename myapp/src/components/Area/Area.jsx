@@ -8,9 +8,11 @@ import animationData from "../../assets/animations/animation.json";
 function Area() {
   const fileInputRef = useRef(null);
   const textInputRef = useRef(null);
+  const qrCodeRef = useRef(null);
   const [fileExtension, setFileExtension] = useState("");
   const [isYouTubeLink, setIsYouTubeLink] = useState(false);
   const [qrCodeValue, setQrCodeValue] = useState("");
+  const [downloaded, setDownloaded] = useState(false);
 
   const theme = useSelector((state) => state.theme.theme);
 
@@ -23,6 +25,7 @@ function Area() {
       setFileExtension(extension);
       setIsYouTubeLink(false);
       setQrCodeValue("");
+      setDownloaded(false);
     }
   };
 
@@ -34,19 +37,41 @@ function Area() {
       setIsYouTubeLink(true);
       setFileExtension("");
       setQrCodeValue("");
+      setDownloaded(false);
     } else if (inputValue.trim() === "") {
       setIsYouTubeLink(false);
       setFileExtension("");
       setQrCodeValue("");
+      setDownloaded(false);
     } else {
       setIsYouTubeLink(false);
       setFileExtension("");
       setQrCodeValue(inputValue);
+      setDownloaded(false);
     }
   };
 
   const handleClick = () => {
     fileInputRef.current.click();
+  };
+
+  const handleDownload = () => {
+    const canvas = qrCodeRef.current.querySelector("canvas");
+    const pngUrl = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    const downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "qrcode.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    setDownloaded(true);
+  };
+
+  const handleGenerateAgain = () => {
+    setQrCodeValue("");
+    textInputRef.current.value = ""; // Clear the input
   };
 
   const renderOperations = () => {
@@ -120,8 +145,29 @@ function Area() {
       );
     } else if (qrCodeValue) {
       return (
-        <div className={style.qrCodeContainer}>
-          <QRCode value={qrCodeValue} size={256} />
+        <div className={style.qrzone}>
+          {downloaded ? (
+            <div className={style.Qrmessage}>
+              <p className={style.QrSuccesMessage}>
+                QR Code downloaded successfully
+              </p>
+              <button
+                className={style.qrdownload}
+                onClick={handleGenerateAgain}
+              >
+                Generate Again
+              </button>
+            </div>
+          ) : (
+            <div className={style.qrCodeContainer} ref={qrCodeRef}>
+              <QRCode value={qrCodeValue} size={200} />
+              <div className={style.downloadBtn}>
+                <button className={style.qrdownload} onClick={handleDownload}>
+                  Download
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       );
     }

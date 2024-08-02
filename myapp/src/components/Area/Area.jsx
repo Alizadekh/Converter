@@ -134,7 +134,7 @@ function Area() {
             },
           }}
           height={400}
-          width={400}
+          width={300}
         />
       </div>
     );

@@ -112,8 +112,10 @@ function Footer() {
             </svg>
           </div>
         </div>
-        <h2>WHAT WE OFFER</h2>
-        <h1>All on one search</h1>
+        <div className={style.message}>
+          <h2>WHAT WE OFFER</h2>
+          <h1>All on one search</h1>
+        </div>
       </div>
     </div>
   );

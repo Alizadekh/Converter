@@ -64,8 +64,9 @@
   width: 100%;
   text-align: center;
 }
-.search {
+.closeBtn {
   cursor: pointer;
+  color: #ff9500;
 }
 .darkArea .qrCodeContainer {
   background-color: #2d2d2d;

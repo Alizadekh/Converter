@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import style from "../../css/Area.module.css";
 import Lottie from "react-lottie";
 import animationData from "../../assets/animations/animation.json";
+import { AiOutlineClose } from "react-icons/ai";
 
 function Area() {
   const fileInputRef = useRef(null);
@@ -27,6 +28,13 @@ function Area() {
       setQrCodeValue("");
       setDownloaded(false);
     }
+  };
+  const handleClearInput = () => {
+    textInputRef.current.value = "";
+    setFileExtension("");
+    setIsYouTubeLink(false);
+    setQrCodeValue("");
+    setDownloaded(false);
   };
 
   const handleTextInputChange = (event) => {
@@ -232,19 +240,7 @@ function Area() {
           ref={fileInputRef}
           onChange={handleFileSelect}
         />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          viewBox="0 0 30 30"
-          fill="none"
-          className={style.search}
-        >
-          <path
-            d="M23.3175 21.9938L26.9794 25.6538C27.1501 25.8306 27.2446 26.0674 27.2425 26.3132C27.2404 26.559 27.1418 26.7942 26.968 26.968C26.7941 27.1418 26.559 27.2404 26.3132 27.2425C26.0674 27.2447 25.8306 27.1502 25.6537 26.9794L21.9919 23.3175C19.5989 25.3677 16.5049 26.4114 13.359 26.2296C10.2132 26.0477 7.25999 24.6545 5.11922 22.3422C2.97844 20.0299 1.81646 16.9784 1.87711 13.8278C1.93775 10.6773 3.21631 7.67269 5.44449 5.44452C7.67266 3.21634 10.6773 1.93778 13.8278 1.87714C16.9783 1.81649 20.0299 2.97847 22.3422 5.11925C24.6545 7.26003 26.0477 10.2132 26.2295 13.3591C26.4114 16.5049 25.3677 19.599 23.3175 21.9919V21.9938ZM14.0625 24.375C16.7975 24.375 19.4206 23.2885 21.3545 21.3546C23.2885 19.4206 24.375 16.7976 24.375 14.0625C24.375 11.3275 23.2885 8.70446 21.3545 6.77049C19.4206 4.83652 16.7975 3.75003 14.0625 3.75003C11.3275 3.75003 8.70443 4.83652 6.77046 6.77049C4.83649 8.70446 3.75 11.3275 3.75 14.0625C3.75 16.7976 4.83649 19.4206 6.77046 21.3546C8.70443 23.2885 11.3275 24.375 14.0625 24.375Z"
-            fill="#FF9500"
-          />
-        </svg>
+        <AiOutlineClose className={style.closeBtn} onClick={handleClearInput} />
       </div>
       {renderOperations()}
     </div>
